@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Puthiyottill Fashions</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#11100f;--cream:#f7f2ea;--gold:#b58a52;--gold2:#d2ae75;--white:#fff;--muted:#77716a;--border:#e8e1d8;--green:#25D366;--red:#b3261e}
+body{font-family:Arial,sans-serif;background:var(--cream);color:#201d19}
+button,input,select{font-family:inherit}button{cursor:pointer}
+header{position:sticky;top:0;z-index:100;background:#fffffff2;backdrop-filter:blur(18px);border-bottom:1px solid #0000000f}
+.nav{max-width:1200px;margin:auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.brand-area{display:flex;align-items:center;gap:12px}.shop-logo{width:54px;height:54px;border-radius:50%;overflow:hidden;border:2px solid var(--gold);background:var(--black);display:flex;align-items:center;justify-content:center;flex-shrink:0}.shop-logo img{width:100%;height:100%;object-fit:cover}.logo-text{font-family:Georgia,serif;font-size:21px;font-weight:bold}.logo-text span{color:var(--gold)}
+.nav-actions{display:flex;gap:8px;align-items:center;flex-shrink:0}.nav-btn,.cart-btn{border:1px solid var(--border);background:white;padding:10px 14px;border-radius:30px}.cart-btn{background:var(--black);color:white;border:0}
+.hero{min-height:620px;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 20px;background:radial-gradient(circle at 10% 20%,#e6d1b2 0,transparent 28%),radial-gradient(circle at 90% 80%,#ded5c8 0,transparent 30%),var(--cream)}
+.hero-content{max-width:800px}.hero-label{color:var(--gold);letter-spacing:5px;font-size:11px;font-weight:bold}.hero h1{font-family:Georgia,serif;font-size:clamp(50px,10vw,100px);line-height:.9;letter-spacing:-5px;margin:25px 0}.hero h1 span{color:var(--gold)}.hero p{max-width:570px;margin:auto;color:var(--muted);line-height:1.8}.hero-buttons{margin-top:32px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.primary,.secondary{padding:15px 25px;border-radius:40px;text-decoration:none;border:0}.primary{background:var(--black);color:white}.secondary{background:white;color:var(--black);border:1px solid var(--border)}
+.offer{background:var(--black);color:white;padding:45px 20px;text-align:center}.offer small{color:var(--gold2);letter-spacing:4px}.offer h2{font-family:Georgia,serif;font-size:38px;margin:10px 0}.offer strong{color:var(--gold2);font-size:30px}.offer p{color:#bbb;margin:10px 0 20px}.offer button{padding:13px 25px;border:1px solid #555;background:transparent;color:white;border-radius:30px}
+.section{max-width:1200px;margin:auto;padding:65px 18px}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:25px}.section-head small{color:var(--gold);letter-spacing:4px}.section-head h2{font-family:Georgia,serif;font-size:40px;margin-top:8px}
+.tools{display:flex;gap:10px;margin-bottom:25px;flex-wrap:wrap}.search{flex:1;min-width:200px;padding:14px 18px;border:1px solid var(--border);border-radius:30px;background:white;outline:none}.filter{padding:13px 17px;border:1px solid var(--border);background:white;border-radius:30px}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{background:white;border-radius:20px;overflow:hidden;border:1px solid #eee;transition:.3s;position:relative}.card:hover{transform:translateY(-6px);box-shadow:0 18px 45px #00000012}.photo{height:360px;background:#eee;position:relative}.photo img{width:100%;height:100%;object-fit:cover}.badge{position:absolute;left:12px;top:12px;background:white;padding:7px 11px;border-radius:20px;font-size:10px;font-weight:bold}.wish{position:absolute;right:12px;top:12px;width:38px;height:38px;border:0;border-radius:50%;background:white;font-size:18px}.card-body{padding:17px}.card-body h3{font-family:Georgia,serif;font-size:19px}.category{color:#999;font-size:12px;margin-top:5px}.price-row{margin:10px 0}.old-price{text-decoration:line-through;color:#aaa;margin-right:7px}.price{font-weight:bold;font-size:18px}.discount{color:#b3261e;font-size:12px;margin-left:6px}.card-actions{display:flex;gap:7px}.add{flex:1;background:var(--black);color:white;border:0;padding:12px;border-radius:10px}.wa-small{width:45px;border:0;border-radius:10px;background:var(--green);color:white;font-size:18px}.empty{grid-column:1/-1;text-align:center;padding:70px 20px;background:white;border-radius:20px}
+.admin-area{background:#eee7dd}.admin-box{max-width:650px;margin:auto;background:white;padding:28px;border-radius:22px}.admin-box h2{font-family:Georgia,serif}.admin-box p{color:var(--muted);margin:8px 0 20px}.admin-box input,.modal-box input,.modal-box textarea,.modal-box select{width:100%;padding:14px;margin:6px 0;border:1px solid var(--border);border-radius:10px;outline:none}.full-btn{width:100%;padding:14px;margin-top:10px;background:var(--black);color:white;border:0;border-radius:10px}
+.notice{max-width:650px;margin:0 auto 20px;background:#fff8e8;border:1px solid #ead6ad;padding:15px;border-radius:14px;color:#6d5730;font-size:14px}
+footer{background:var(--black);color:white;text-align:center;padding:60px 20px}footer h2{font-family:Georgia,serif;font-size:30px}footer p{color:#aaa;margin-top:10px}
+.whatsapp{position:fixed;right:18px;bottom:18px;width:58px;height:58px;border-radius:50%;background:var(--green);color:white;display:flex;justify-content:center;align-items:center;text-decoration:none;font-size:27px;z-index:150;box-shadow:0 8px 30px #0003}
+.modal{display:none;position:fixed;inset:0;z-index:500;background:#0009;align-items:flex-end;justify-content:center}.modal-box{background:white;width:100%;max-width:550px;max-height:92vh;overflow:auto;padding:28px;border-radius:28px 28px 0 0}.close{float:right;background:none;border:0;font-size:28px}.modal-box h2{font-family:Georgia,serif;font-size:29px;margin-bottom:20px}.modal-btn{width:100%;padding:14px;margin-top:10px;border:0;border-radius:10px;background:var(--black);color:white}.order{background:var(--cream);padding:15px;border-radius:14px;margin:10px 0}.delete{background:var(--red);color:white;border:0;padding:8px 12px;border-radius:8px;margin-top:10px}.edit{background:var(--gold);color:white;border:0;padding:8px 12px;border-radius:8px;margin-top:10px;margin-right:5px}
+.admin-status{display:none;background:#151310;color:white;padding:10px 18px;text-align:center;font-size:13px}.admin-status button{margin-left:10px;background:var(--gold);color:white;border:0;border-radius:15px;padding:5px 12px}
+@media(max-width:900px){.products{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.nav{padding:8px 10px;gap:6px}.logo-text{font-size:15px}.shop-logo{width:44px;height:44px}.nav-actions{gap:5px}.nav-btn{display:block;padding:9px 9px;font-size:11px}.cart-btn{padding:9px 10px;font-size:12px}.hero{min-height:570px}.hero h1{font-size:54px}.section-head h2{font-size:32px}.products{grid-template-columns:1fr 1fr;gap:10px}.photo{height:260px}.card-body{padding:12px}.card-body h3{font-size:16px}.price{font-size:16px}.add{padding:10px 5px;font-size:12px}.wa-small{width:38px}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="nav">
+<div class="brand-area">
+<div class="shop-logo"><span style="font-family:Georgia,serif;font-weight:bold;font-size:19px;color:white">PF</span></div>
+<div class="logo-text">Puthiyottill <span>Fashions</span></div>
+</div>
+<div class="nav-actions">
+<button class="nav-btn" onclick="openAdmin()">🔐 Admin</button>
+<button class="cart-btn" onclick="openCart()">🛍 <span id="cartCount">0</span></button>
+</div>
+</div>
+</header>
+
+<div id="adminStatus" class="admin-status">Admin signed in on this phone <button onclick="logoutAdmin()">Sign out</button></div>
+
+<section class="hero"><div class="hero-content">
+<div class="hero-label">PUTHIYOTTILL • FASHIONS</div>
+<h1>Wear Your<br><span>Own Story.</span></h1>
+<p>Discover elegant fashion pieces selected for your special moments.</p>
+<div class="hero-buttons">
+<button class="primary" onclick="goShop()">Explore Collection</button>
+<a class="secondary" href="https://wa.me/919567570610" target="_blank">💬 WhatsApp</a>
+</div></div></section>
+
+<section class="offer"><small>FESTIVAL SPECIAL</small><h2>Celebrate in Style</h2><strong>UP TO 30% OFF</strong><p>Special offer on selected collections</p><button onclick="goShop()">SHOP OFFER →</button></section>
+
+<section class="section" id="shop">
+<div class="section-head"><div><small>CURATED FOR YOU</small><h2>New Collection</h2></div></div>
+<div class="tools">
+<input class="search" id="search" placeholder="🔎 Search dresses..." oninput="displayProducts()">
+<select class="filter" id="category" onchange="displayProducts()">
+<option value="all">All Categories</option><option>Anarkali</option><option>Kurti</option><option>Saree</option><option>Dress</option><option>Other</option>
+</select>
+</div>
+<div class="products" id="products"></div>
+</section>
+
+<section class="section admin-area" id="adminProductArea" style="display:none">
+<div class="notice">🔐 Admin area — only the signed-in Firebase admin can add or manage products.</div>
+<div class="admin-box">
+<h2>Add Your Own Product</h2>
+<p>Upload your product photo, name, price and category. Photos are resized in your browser so this version can work without Firebase Storage billing.</p>
+<input id="productName" placeholder="Product name">
+<input id="productPrice" type="number" placeholder="Price ₹">
+<input id="productOldPrice" type="number" placeholder="Old price ₹ (optional)">
+<select id="productCategory"><option>Anarkali</option><option>Kurti</option><option>Saree</option><option>Dress</option><option>Other</option></select>
+<input id="productPhoto" type="file" accept="image/*">
+<button class="full-btn" onclick="addProduct()">+ Add Product</button>
+</div>
+</section>
+
+<footer><h2>Puthiyottill Fashions</h2><p>Fashion • Elegance • You</p><p>📞 9567570610</p><p>📧 puthiyottillfashionsnmd2026@gmail.com</p></footer>
+<a class="whatsapp" href="https://wa.me/919567570610" target="_blank">💬</a>
+
+<div class="modal" id="cartModal"><div class="modal-box"><button class="close" onclick="closeCart()">×</button><h2>Your Bag</h2><div id="cartItems"></div><button class="modal-btn" onclick="openCheckout()">Continue to Order</button></div></div>
+
+<div class="modal" id="checkoutModal"><div class="modal-box"><button class="close" onclick="closeCheckout()">×</button><h2>Order Details</h2>
+<input id="customerName" placeholder="Your name"><input id="customerPhone" placeholder="Phone number"><textarea id="customerAddress" placeholder="Full address" rows="3"></textarea><input id="customerPincode" placeholder="Pincode">
+<button class="modal-btn" onclick="placeOrder()">💬 Place Order on WhatsApp</button></div></div>
+
+<div class="modal" id="adminModal"><div class="modal-box"><button class="close" onclick="closeAdmin()">×</button><h2>Admin Login</h2>
+<input id="adminEmail" type="email" value="puthiyottillfashionsnmd2026@gmail.com" placeholder="Admin email"><input id="adminPassword" type="password" placeholder="Firebase password">
+<button class="modal-btn" onclick="adminLogin()">Sign In</button><p id="adminMessage" style="color:#b3261e;margin-top:12px"></p></div></div>
+
+<div class="modal" id="dashboardModal"><div class="modal-box"><button class="close" onclick="closeDashboard()">×</button><h2>Admin Dashboard</h2>
+<button class="modal-btn" onclick="showOrders()">📦 Customer Orders</button><button class="modal-btn" onclick="showProducts()">👗 Manage Products</button><div id="adminContent" style="margin-top:20px"></div></div></div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+import { getFirestore, collection, addDoc, getDocs, updateDoc, deleteDoc, doc, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+const firebaseConfig={
+ apiKey:"AIzaSyBXtoEc5YXarOpm78LhCG4XkHgQF0LXYWM",
+ authDomain:"puthiyottill-fashions.firebaseapp.com",
+ projectId:"puthiyottill-fashions",
+ storageBucket:"puthiyottill-fashions.firebasestorage.app",
+ messagingSenderId:"422924482179",
+ appId:"1:422924482179:web:fe392efcddc29ab2244db6"
+};
+
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
+const db=getFirestore(app);
+
+let products=[];
+let cart=JSON.parse(localStorage.getItem("cart")||"[]");
+let adminUser=null;
+
+const ADMIN_EMAIL="puthiyottillfashionsnmd2026@gmail.com";
+const WA="919567570610";
+
+function saveCart(){localStorage.setItem("cart",JSON.stringify(cart))}
+function goShop(){document.getElementById("shop").scrollIntoView({behavior:"smooth"})}
+function updateCart(){document.getElementById("cartCount").innerText=cart.length}
+function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+
+async function loadProducts(){
+ try{
+  const snap=await getDocs(collection(db,"products"));
+  products=snap.docs.map(d=>({id:d.id,...d.data()}));
+  displayProducts();
+ }catch(e){
+  console.error(e);
+  document.getElementById("products").innerHTML='<div class="empty"><h3>Products are loading...</h3><p style="color:#777;margin-top:10px">Firebase security rules need to be connected before products can be read.</p></div>';
+ }
+}
+
+function displayProducts(){
+ const box=document.getElementById("products"),search=document.getElementById("search").value.toLowerCase(),category=document.getElementById("category").value;
+ box.innerHTML="";
+ const filtered=products.filter(p=>(p.name||"").toLowerCase().includes(search)&&(category==="all"||p.category===category));
+ if(!filtered.length){box.innerHTML='<div class="empty"><h3>Your collection starts here.</h3><p style="color:#777;margin-top:10px">New fashion products will appear here.</p></div>';return}
+ filtered.forEach(p=>{
+  let discount="";
+  if(p.oldPrice&&Number(p.oldPrice)>Number(p.price)){discount=`<span class="discount">${Math.round(((p.oldPrice-p.price)/p.oldPrice)*100)}% OFF</span>`}
+  box.innerHTML+=`<div class="card"><div class="photo"><img src="${esc(p.image||"")}" alt="${esc(p.name)}"><div class="badge">NEW</div><button class="wish" onclick="wishlist(this)">♡</button></div><div class="card-body"><h3>${esc(p.name)}</h3><div class="category">${esc(p.category||"Fashion")}</div><div class="price-row">${p.oldPrice?`<span class="old-price">₹${p.oldPrice}</span>`:""}<span class="price">₹${p.price}</span>${discount}</div><div class="card-actions"><button class="add" onclick="addToCart('${p.id}')">Add to Bag</button><button class="wa-small" onclick="buyWhatsApp('${p.id}')">💬</button></div></div></div>`;
+ });
+}
+function wishlist(btn){btn.innerText=btn.innerText==="♡"?"♥":"♡"}
+
+window.addToCart=function(id){const p=products.find(x=>x.id===id);if(!p)return;cart.push(p);saveCart();updateCart();alert("Added to your bag ❤️")}
+window.openCart=function(){const box=document.getElementById("cartItems");box.innerHTML=cart.length?cart.map((x,i)=>`<div style="display:flex;justify-content:space-between;padding:15px 0;border-bottom:1px solid #eee"><div><b>${esc(x.name)}</b><br>₹${x.price}</div><button onclick="removeCart(${i})" style="border:0;background:none;color:#b3261e">Remove</button></div>`).join(""):'<p style="text-align:center;padding:30px;color:#777">Your bag is empty.</p>';document.getElementById("cartModal").style.display="flex"}
+window.closeCart=function(){document.getElementById("cartModal").style.display="none"}
+window.removeCart=function(i){cart.splice(i,1);saveCart();updateCart();openCart()}
+window.openCheckout=function(){if(!cart.length){alert("Please add a product first.");return}closeCart();document.getElementById("checkoutModal").style.display="flex"}
+window.closeCheckout=function(){document.getElementById("checkoutModal").style.display="none"}
+
+window.placeOrder=async function(){
+ const name=document.getElementById("customerName").value.trim(),phone=document.getElementById("customerPhone").value.trim(),address=document.getElementById("customerAddress").value.trim(),pincode=document.getElementById("customerPincode").value.trim();
+ if(!name||!phone||!address||!pincode){alert("Please fill all details.");return}
+ const message=`Hello Puthiyottill Fashions 👋\n\nI would like to place an order.\n\nCustomer Name: ${name}\nPhone: ${phone}\nAddress: ${address}\nPincode: ${pincode}\n\nProducts:\n${cart.map(x=>"• "+x.name+" - ₹"+x.price).join("\n")}`;
+ try{
+  await addDoc(collection(db,"orders"),{customer:{name,phone,address,pincode},items:cart,createdAt:serverTimestamp()});
+ }catch(e){console.error(e);alert("Order could not be saved online. Please try again.");return}
+ window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(message),"_blank");
+ cart=[];saveCart();updateCart();closeCheckout();
+}
+
+window.buyWhatsApp=function(id){const p=products.find(x=>x.id===id);if(!p)return;const message=`Hello Puthiyottill Fashions 👋\n\nI am interested in:\n\n${p.name}\n\nPrice: ₹${p.price}`;window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(message),"_blank")}
+
+function resizeImage(file){
+ return new Promise((resolve,reject)=>{
+  const r=new FileReader();
+  r.onload=()=>{const img=new Image();img.onload=()=>{const max=700,scale=Math.min(1,max/Math.max(img.width,img.height)),c=document.createElement("canvas");c.width=Math.round(img.width*scale);c.height=Math.round(img.height*scale);c.getContext("2d").drawImage(img,0,0,c.width,c.height);resolve(c.toDataURL("image/jpeg",.72))};img.onerror=reject;img.src=r.result};r.onerror=reject;r.readAsDataURL(file)
+ })
+}
+
+window.addProduct=async function(){
+ if(!adminUser){alert("Please sign in as admin first.");return}
+ const name=document.getElementById("productName").value.trim(),price=Number(document.getElementById("productPrice").value),oldPrice=Number(document.getElementById("productOldPrice").value)||null,category=document.getElementById("productCategory").value,file=document.getElementById("productPhoto").files[0];
+ if(!name||!price||!file){alert("Please add product name, price and photo.");return}
+ try{
+  const image=await resizeImage(file);
+  await addDoc(collection(db,"products"),{name,price,oldPrice,category,image,createdAt:serverTimestamp()});
+  alert("Product added successfully ❤️");document.getElementById("productName").value="";document.getElementById("productPrice").value="";document.getElementById("productOldPrice").value="";document.getElementById("productPhoto").value="";await loadProducts();showProducts();
+ }catch(e){console.error(e);alert("Product could not be saved. Check Firebase rules.");}
+}
+
+window.openAdmin=function(){document.getElementById("adminMessage").innerText="";document.getElementById("adminModal").style.display="flex"}
+window.closeAdmin=function(){document.getElementById("adminModal").style.display="none"}
+window.adminLogin=async function(){
+ const email=document.getElementById("adminEmail").value.trim(),password=document.getElementById("adminPassword").value;
+ if(email!==ADMIN_EMAIL){document.getElementById("adminMessage").innerText="Use the registered admin email.";return}
+ try{await signInWithEmailAndPassword(auth,email,password);closeAdmin()}catch(e){document.getElementById("adminMessage").innerText="Login failed. Check the Firebase password.";console.error(e)}
+}
+window.logoutAdmin=async function(){await signOut(auth)}
+window.closeDashboard=function(){document.getElementById("dashboardModal").style.display="none"}
+
+window.showOrders=async function(){
+ if(!adminUser)return;
+ const box=document.getElementById("adminContent");box.innerHTML="<p>Loading orders...</p>";
+ try{
+  const snap=await getDocs(query(collection(db,"orders"),orderBy("createdAt","desc")));
+  if(snap.empty){box.innerHTML='<p style="color:#777">No orders yet.</p>';return}
+  box.innerHTML=snap.docs.map((d,i)=>{const o=d.data();const date=o.createdAt?.toDate?o.createdAt.toDate().toLocaleString():"Recent";return `<div class="order"><b>Order #${snap.size-i}</b><p style="margin-top:10px">👤 ${esc(o.customer?.name)}</p><p>📞 ${esc(o.customer?.phone)}</p><p>📍 ${esc(o.customer?.address)}</p><p>📮 ${esc(o.customer?.pincode)}</p><p style="margin-top:10px">${(o.items||[]).map(x=>esc(x.name)+" — ₹"+x.price).join("<br>")}</p><small>${date}</small></div>`}).join("");
+ }catch(e){box.innerHTML='<p style="color:#b3261e">Could not load orders. Check Firebase rules.</p>';console.error(e)}
+}
+
+window.showProducts=function(){
+ if(!adminUser)return;
+ const box=document.getElementById("adminContent");
+ box.innerHTML=`<h3>Products (${products.length})</h3>`+products.map(p=>`<div class="order"><b>${esc(p.name)}</b><p>₹${p.price}</p><p>${esc(p.category)}</p><button class="edit" onclick="editProduct('${p.id}')">Edit Price/Name</button><button class="delete" onclick="deleteProduct('${p.id}')">Delete</button></div>`).join("");
+}
+window.editProduct=async function(id){
+ const p=products.find(x=>x.id===id);if(!p)return;
+ const name=prompt("Product name:",p.name);if(name===null)return;
+ const price=prompt("Price ₹:",p.price);if(price===null)return;
+ const oldPrice=prompt("Old price ₹ (optional):",p.oldPrice||"");if(oldPrice===null)return;
+ try{await updateDoc(doc(db,"products",id),{name:name.trim(),price:Number(price),oldPrice:Number(oldPrice)||null});await loadProducts();showProducts();alert("Product updated.")}catch(e){alert("Update failed. Check Firebase rules.")}
+}
+window.deleteProduct=async function(id){if(!confirm("Delete this product?"))return;try{await deleteDoc(doc(db,"products",id));await loadProducts();showProducts()}catch(e){alert("Delete failed. Check Firebase rules.")}}
+
+onAuthStateChanged(auth,user=>{
+ adminUser=user&&user.email===ADMIN_EMAIL?user:null;
+ document.getElementById("adminStatus").style.display=adminUser?"block":"none";
+ document.getElementById("adminProductArea").style.display=adminUser?"block":"none";
+ if(adminUser){document.getElementById("dashboardModal").style.display="flex"}else document.getElementById("dashboardModal").style.display="none";
+});
+
+updateCart();
+loadProducts();
+</script>
+</body>
+</html>
